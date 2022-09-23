@@ -1,0 +1,33 @@
+      <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#2B2D42',
+            },
+            headerTintColor: '#FFFF',
+          }}>
+          <Stack.Screen
+            options={{
+              title: 'Rick and Morty App',
+              /* headerStyle: {
+                  backgroundColor: '#2B2D42',
+                },
+                headerTintColor: '#FFFF',
+                */
+            }}
+            name="Home"
+            component={HomeScreen}
+          />
+          {/* <Stack.Group screenOptions={{presentation: 'modal'}}> */}
+            <Stack.Screen
+              options={({ route }) => {
+                const characterName = route.params.character.name;
+                return {
+                  title: characterName,
+                  // headerShown: false
+                };
+              }}
+              name="Detail"
+              component={DetailScreen}
+            />
+         {/*  </Stack.Group> */}
+        </Stack.Navigator>
